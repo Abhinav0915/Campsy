@@ -25,23 +25,17 @@ app.set('views', path.join(__dirname,'views'));
 app.set('view engine', 'ejs');
 
 app.get('/home', (req,res) => {
-    res.render('home');
-})
-
-app.listen(3000, () => {
-    console.log('Server is now running on port 3000');
+    res.render('home',{camp});
 })
 
 app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
-app.get('/addcampground', async (req,res) => {
-    const camp = new Campground({
-        title: 'My School Playground',
-        price: 'Rs 10',
-        description: 'Cringe Camping'
-    });
-    await camp.save();
-    res.send(camp)
+
+
+
+app.listen(3000, () => {
+    console.log('Server is now running on port 3000');
 })
+
